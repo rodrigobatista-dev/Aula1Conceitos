@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json()); // Middleware para analisar o corpo da requisição como JSON
 // app.use(cors()); aqui voce descomenta caso queira usar localmente
 app.use(cors({
-  origin: "https://devclub-cadastro-usuarios-omega.vercel.app"
+  origin:"https://devclub-cadastro-usuarios-omega.vercel.app"
 }));
 
 app.get("/usuarios", async (req, res) => {
