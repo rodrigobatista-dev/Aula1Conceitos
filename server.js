@@ -51,11 +51,22 @@ app.delete("/usuarios/:id", async (req, res) => {
   res.status(200).json({ message: "Usuário deletado com sucesso" });
 });
 
-const PORT = 3000;
+app.get("/", (req, res) => {
+  res.send("API funcionando 🚀. Use /usuarios para acessar os dados.");
+});
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+
+// const PORT = 3000;
+
+// app.listen(PORT, () => {
+//   console.log(`Servidor rodando na porta ${PORT}`);
+// });
 
 //rodrigobatista03
 //NWbWEz5Ed1LZ2rGr
