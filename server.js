@@ -6,7 +6,10 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json()); // Middleware para analisar o corpo da requisição como JSON
-app.use(cors());
+// app.use(cors()); aqui voce descomenta caso queira usar localmente
+app.use(cors({
+  origin: "https://devclub-cadastro-usuarios-omega.vercel.app"
+}));
 
 app.get("/usuarios", async (req, res) => {
   const users = await prisma.user.findMany();
@@ -50,9 +53,10 @@ app.delete("/usuarios/:id", async (req, res) => {
   res.status(200).json({ message: "Usuário deletado com sucesso" });
 });
 
-app.listen(3000, () => {
-  console.log("Servidor rodando na porta 3000");
-});
+const PORT = process.env.PORT || 3000;
 
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
 //rodrigobatista03
 //NWbWEz5Ed1LZ2rGr
